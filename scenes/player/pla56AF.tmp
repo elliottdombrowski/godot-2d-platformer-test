@@ -381,6 +381,21 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_sql77")
+LAST_HELD_DIRECTION = null
+ACCELERATION_SMOOTHING = null
+RUN_SPEED = null
+WALK_SPEED = null
+CROUCH_SPEED = null
+ROLL_SPEED = null
+JUMP_FORCE = null
+GRAVITY = null
+IS_IDLE = null
+IS_WALKING = null
+IS_RUNNING = null
+IS_JUMPING = null
+IS_CROUCHED = null
+IS_ROLLING = null
+IS_ATTACKING = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)

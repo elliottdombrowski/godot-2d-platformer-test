@@ -9,11 +9,12 @@ extends CharacterBody2D
 @export var CROUCH_SPEED           : int = 80
 @export var ROLL_SPEED             : int = 200
 @export var JUMP_FORCE             : int = 255
-@export var GRAVITY                : int = 900
+@export var GRAVITY                : int = 1100
 
 @export var IS_IDLE                : bool = true
 @export var IS_WALKING             : bool = false
 @export var IS_RUNNING             : bool = false
+@export var IS_JUMPING             : bool = false
 @export var IS_CROUCHED            : bool = false
 @export var IS_ROLLING             : bool = false
 @export var IS_ATTACKING           : bool = false
@@ -36,7 +37,8 @@ func handle_player_movement(delta, direction):
 
 		if is_crouched:
 			velocity.x = direction * CROUCH_SPEED
-			$AnimatedSprite2D.play("crouch_walk")
+			if !IS_JUMPING:
+				$AnimatedSprite2D.play("crouch_walk") 
 		else:
 			velocity.x = direction * RUN_SPEED
 			if (direction > 0 && direction < 1) or (direction < 0 && direction > -1):
@@ -54,20 +56,21 @@ func handle_player_movement(delta, direction):
 	get_player_facing_direction(direction)
 	
 	# Jump
-	# NOTE - Need gravity 
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-		#velocity.y -= JUMP_FORCE
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y -= JUMP_FORCE
 
 	# Gravity
-	#if not is_on_floor():
-		#velocity.y += GRAVITY * delta
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
 	
 	move_and_slide()
 
 
 func handle_player_attack():
+	if !is_on_floor(): return
+
 	if Input.is_action_just_pressed("basic_attack"):
-		var animation = "sword_stab" if randf() < 0.3 else "sword_slash" 
+		var animation = "sword_stab" if randf() < 0.4 else "sword_slash" 
 
 		IS_ATTACKING = true
 		$AnimatedSprite2D.play(animation)
@@ -90,14 +93,14 @@ func get_player_facing_direction(direction):
 
 # Toggle crouch
 func player_is_crouched():
-	if Input.is_action_just_pressed("toggle_crouch"): # and is_on_floor():
+	if Input.is_action_just_pressed("toggle_crouch") and is_on_floor():
 		IS_CROUCHED = !IS_CROUCHED
 	return IS_CROUCHED
 
 
 # Press to roll
 func player_is_rolling():
-	if Input.is_action_just_pressed("roll"): # and is_on_floor():
+	if Input.is_action_just_pressed("roll") and is_on_floor():
 		IS_CROUCHED = false
 		IS_WALKING  = false
 		IS_RUNNING  = false
