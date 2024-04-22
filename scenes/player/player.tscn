@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bdrxo64le4hjd"]
+[gd_scene load_steps=60 format=3 uid="uid://bdrxo64le4hjd"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_sql77"]
 [ext_resource type="Texture2D" uid="uid://b4oyxbarnrada" path="res://animations/player/idle/tile000.png" id="1_yq0gx"]
@@ -42,6 +42,13 @@
 [ext_resource type="Texture2D" uid="uid://bmsveioraanw6" path="res://animations/player/crouch_walk/tile008.png" id="20_wwvxj"]
 [ext_resource type="Texture2D" uid="uid://dguolcimvf2gw" path="res://animations/player/run/tile007.png" id="21_a4xc0"]
 [ext_resource type="Texture2D" uid="uid://crbcedk3katyu" path="res://animations/player/crouch_walk/tile009.png" id="21_fa6ei"]
+[ext_resource type="Texture2D" uid="uid://cs3prnn4evjj0" path="res://animations/player/roll/tile000.png" id="35_fujvj"]
+[ext_resource type="Texture2D" uid="uid://5drjeag645qb" path="res://animations/player/roll/tile001.png" id="36_upktq"]
+[ext_resource type="Texture2D" uid="uid://uk0bp2ik86nd" path="res://animations/player/roll/tile002.png" id="37_84seq"]
+[ext_resource type="Texture2D" uid="uid://dt4bia21ey2k7" path="res://animations/player/roll/tile003.png" id="38_06c6e"]
+[ext_resource type="Texture2D" uid="uid://badx26oe0pl6p" path="res://animations/player/roll/tile004.png" id="39_4tf3t"]
+[ext_resource type="Texture2D" uid="uid://6unq1mwdju0r" path="res://animations/player/roll/tile005.png" id="40_0h56n"]
+[ext_resource type="Texture2D" uid="uid://b01nh2ykw7vpy" path="res://animations/player/roll/tile006.png" id="41_owpir"]
 [ext_resource type="Texture2D" uid="uid://b2nqmumgooxm2" path="res://animations/player/walk/tile000.png" id="43_xa246"]
 [ext_resource type="Texture2D" uid="uid://tyw2kr5erjsx" path="res://animations/player/walk/tile001.png" id="44_owe4i"]
 [ext_resource type="Texture2D" uid="uid://btd6hoo7od818" path="res://animations/player/walk/tile002.png" id="45_76ffd"]
@@ -177,6 +184,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("35_fujvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_upktq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_84seq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_06c6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_4tf3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_0h56n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_owpir")
+}],
+"loop": false,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("14_0cjw8")
 }, {
 "duration": 1.0,
@@ -243,8 +276,8 @@ shape = SubResource("CapsuleShape2D_1phv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ohc71")
-animation = &"run"
+animation = &"roll"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.420274
+frame = 6
+frame_progress = 1.0
 offset = Vector2(0, -16)
