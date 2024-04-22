@@ -1,6 +1,6 @@
 extends CharacterBody2D 
 
-@export var LAST_HELD_DIRECTION : int = 1
+@export var LAST_HELD_DIRECTION    : int = 1
 
 @export var ACCELERATION_SMOOTHING : int = 25
 
@@ -16,18 +16,20 @@ extends CharacterBody2D
 @export var IS_RUNNING             : bool = false
 @export var IS_CROUCHED            : bool = false
 @export var IS_ROLLING             : bool = false
-
+@export var IS_ATTACKING           : bool = false
 
 func _physics_process(delta):
-	handle_player_movement(delta)
-
-
-func handle_player_movement(delta):
 	var direction = get_x_movement()
+	handle_player_movement(delta, direction)
+	handle_player_attack()
+
+
+func handle_player_movement(delta, direction):
 	if direction != 0: LAST_HELD_DIRECTION = direction # Update last held direction
 
 	var is_crouched = player_is_crouched()
-
+	
+	if IS_ATTACKING: return
 	if direction:
 		IS_IDLE    = false
 		IS_RUNNING = true
@@ -63,6 +65,19 @@ func handle_player_movement(delta):
 	move_and_slide()
 
 
+func handle_player_attack():
+	if Input.is_action_just_pressed("basic_attack"):
+		var animation = "sword_stab" if randf() < 0.3 else "sword_slash" 
+
+		IS_ATTACKING = true
+		$AnimatedSprite2D.play(animation)
+		return
+	if Input.is_action_just_pressed("heavy_attack"):
+		IS_ATTACKING = true
+		$AnimatedSprite2D.play("sword_heavy_attack")
+		return
+
+
 func get_x_movement():
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	return x_movement
@@ -89,3 +104,7 @@ func player_is_rolling():
 		IS_ROLLING  = true
 	else: IS_ROLLING = false
 	return IS_ROLLING
+
+
+func _on_animated_sprite_2d_animation_finished():
+	IS_ATTACKING = false
