@@ -11,5 +11,21 @@ config_version=5
 [application]
 
 config/name="godot-2d-platformer-test"
+run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
