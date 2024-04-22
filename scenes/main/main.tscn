@@ -1,22 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://qveuik7emss6"]
+[gd_scene load_steps=3 format=3 uid="uid://qveuik7emss6"]
 
+[ext_resource type="PackedScene" uid="uid://c428oo00sjqj7" path="res://scenes/game_camera/game_camera.tscn" id="1_gpfjo"]
 [ext_resource type="PackedScene" uid="uid://bdrxo64le4hjd" path="res://scenes/player/player.tscn" id="1_r86ec"]
 
 [node name="Main" type="Node"]
 
+[node name="GameCamera" parent="." instance=ExtResource("1_gpfjo")]
+
 [node name="Player" parent="." instance=ExtResource("1_r86ec")]
 position = Vector2(640, 362)
-LAST_HELD_DIRECTION = 1
-ACCELERATION_SMOOTHING = 25
-RUN_SPEED = 180
-WALK_SPEED = 100
-CROUCH_SPEED = 80
-ROLL_SPEED = 200
-JUMP_FORCE = 255
-GRAVITY = 900
-IS_IDLE = true
-IS_WALKING = false
-IS_RUNNING = false
-IS_CROUCHED = false
-IS_ROLLING = false
-IS_ATTACKING = false
