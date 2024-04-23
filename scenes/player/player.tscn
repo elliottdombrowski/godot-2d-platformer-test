@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bdrxo64le4hjd"]
+[gd_scene load_steps=90 format=3 uid="uid://bdrxo64le4hjd"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_sql77"]
 [ext_resource type="Texture2D" uid="uid://dfykp6wvftkxg" path="res://animations/player/movement/crouch_idle/tile000.png" id="2_p777c"]
@@ -22,23 +22,29 @@
 [ext_resource type="Texture2D" uid="uid://bmsveioraanw6" path="res://animations/player/movement/crouch_walk/tile008.png" id="20_amlvs"]
 [ext_resource type="Texture2D" uid="uid://crbcedk3katyu" path="res://animations/player/movement/crouch_walk/tile009.png" id="21_k8cpm"]
 [ext_resource type="Texture2D" uid="uid://b4oyxbarnrada" path="res://animations/player/movement/idle/tile000.png" id="22_hq7q3"]
+[ext_resource type="Texture2D" uid="uid://qad4yk8r3e8l" path="res://animations/player/movement/jump/double_jump/tile000.png" id="22_k3in8"]
+[ext_resource type="Texture2D" uid="uid://cqvq4aa2vxp4r" path="res://animations/player/movement/jump/double_jump/tile001.png" id="23_34fjd"]
 [ext_resource type="Texture2D" uid="uid://canagi061dwg8" path="res://animations/player/movement/idle/tile001.png" id="23_gignu"]
 [ext_resource type="Texture2D" uid="uid://bjclqp533dg05" path="res://animations/player/movement/idle/tile002.png" id="24_40wgc"]
+[ext_resource type="Texture2D" uid="uid://bn883ul7a1rcp" path="res://animations/player/movement/jump/double_jump/tile002.png" id="24_p748s"]
+[ext_resource type="Texture2D" uid="uid://cv5dx8bl10j60" path="res://animations/player/movement/jump/double_jump/tile003.png" id="25_3v0kk"]
 [ext_resource type="Texture2D" uid="uid://c1wrsbpvfglio" path="res://animations/player/movement/idle/tile003.png" id="25_bely3"]
+[ext_resource type="Texture2D" uid="uid://bcfe8ijqedqic" path="res://animations/player/movement/jump/double_jump/tile004.png" id="26_4imjh"]
 [ext_resource type="Texture2D" uid="uid://n7be1ed6v453" path="res://animations/player/movement/idle/tile004.png" id="26_sjnq3"]
+[ext_resource type="Texture2D" uid="uid://cctglx2o22lj4" path="res://animations/player/movement/jump/double_jump/tile005.png" id="27_7ch00"]
 [ext_resource type="Texture2D" uid="uid://bcqbr03w38hab" path="res://animations/player/movement/idle/tile005.png" id="27_e2waf"]
 [ext_resource type="Texture2D" uid="uid://bccwcmrv13b0w" path="res://animations/player/movement/idle/tile006.png" id="28_4nta1"]
 [ext_resource type="Texture2D" uid="uid://towc6bfocngt" path="res://animations/player/movement/idle/tile007.png" id="29_ln5uf"]
 [ext_resource type="Texture2D" uid="uid://b6c8r5hdi0kx7" path="res://animations/player/movement/idle/tile008.png" id="30_mp071"]
 [ext_resource type="Texture2D" uid="uid://do07gk6xjckdg" path="res://animations/player/movement/idle/tile009.png" id="31_evrf1"]
-[ext_resource type="Texture2D" uid="uid://c605wj2fb5vrm" path="res://animations/player/movement/jump/tile000.png" id="32_ko6lg"]
-[ext_resource type="Texture2D" uid="uid://3jikb62ohcov" path="res://animations/player/movement/jump/tile001.png" id="33_ghaiy"]
-[ext_resource type="Texture2D" uid="uid://ci25hs7gi0yeu" path="res://animations/player/movement/jump/tile002.png" id="34_f6b7y"]
 [ext_resource type="Texture2D" uid="uid://cs3prnn4evjj0" path="res://animations/player/movement/roll/tile000.png" id="35_geold"]
 [ext_resource type="Texture2D" uid="uid://5drjeag645qb" path="res://animations/player/movement/roll/tile001.png" id="36_jtwrv"]
 [ext_resource type="Texture2D" uid="uid://uk0bp2ik86nd" path="res://animations/player/movement/roll/tile002.png" id="37_d265m"]
 [ext_resource type="Texture2D" uid="uid://dt4bia21ey2k7" path="res://animations/player/movement/roll/tile003.png" id="38_8hupa"]
+[ext_resource type="Texture2D" uid="uid://c605wj2fb5vrm" path="res://animations/player/movement/jump/single_jump/tile000.png" id="38_n1dpj"]
 [ext_resource type="Texture2D" uid="uid://badx26oe0pl6p" path="res://animations/player/movement/roll/tile004.png" id="39_0lwxs"]
+[ext_resource type="Texture2D" uid="uid://3jikb62ohcov" path="res://animations/player/movement/jump/single_jump/tile001.png" id="39_kh1h7"]
+[ext_resource type="Texture2D" uid="uid://ci25hs7gi0yeu" path="res://animations/player/movement/jump/single_jump/tile002.png" id="40_eidom"]
 [ext_resource type="Texture2D" uid="uid://6unq1mwdju0r" path="res://animations/player/movement/roll/tile005.png" id="40_is467"]
 [ext_resource type="Texture2D" uid="uid://b01nh2ykw7vpy" path="res://animations/player/movement/roll/tile006.png" id="41_55t6p"]
 [ext_resource type="Texture2D" uid="uid://copo4duwixtm0" path="res://animations/player/movement/run/tile000.png" id="42_a2uoc"]
@@ -159,6 +165,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("22_k3in8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_34fjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_p748s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_3v0kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4imjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_7ch00")
+}],
+"loop": false,
+"name": &"double_jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("22_hq7q3")
 }, {
 "duration": 1.0,
@@ -194,17 +223,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("32_ko6lg")
+"texture": ExtResource("38_n1dpj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_ghaiy")
+"texture": ExtResource("39_kh1h7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_f6b7y")
+"texture": ExtResource("40_eidom")
 }],
 "loop": false,
 "name": &"jump",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -388,8 +417,10 @@ shape = SubResource("CapsuleShape2D_1phv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ohc71")
-animation = &"jump"
+animation = &"double_jump"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
