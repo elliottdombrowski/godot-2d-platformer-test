@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qveuik7emss6"]
+[gd_scene load_steps=6 format=3 uid="uid://qveuik7emss6"]
 
 [ext_resource type="PackedScene" uid="uid://c428oo00sjqj7" path="res://scenes/game_camera/game_camera.tscn" id="1_gpfjo"]
 [ext_resource type="PackedScene" uid="uid://bdrxo64le4hjd" path="res://scenes/player/player.tscn" id="1_r86ec"]
 [ext_resource type="TileSet" uid="uid://tm66q0ca1bu4" path="res://assets/environment/tileset.tres" id="2_iecb2"]
+[ext_resource type="Texture2D" uid="uid://burgd6o02x6il" path="res://assets/environment/background/BG4.png" id="3_6uwxo"]
 [ext_resource type="Texture2D" uid="uid://ftm4g2fefwqy" path="res://assets/environment/background/Sky.png" id="3_n42y7"]
 
 [node name="Main" type="Node"]
@@ -18,6 +19,14 @@ color = Color(0.839216, 1, 0.937255, 1)
 position = Vector2(640, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("3_n42y7")
+
+[node name="Bg4" type="Sprite2D" parent="."]
+position = Vector2(278, 408)
+texture = ExtResource("3_6uwxo")
+
+[node name="Bg5" type="Sprite2D" parent="."]
+position = Vector2(669, 399)
+texture = ExtResource("3_6uwxo")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_iecb2")
