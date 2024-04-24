@@ -1,3 +1,160 @@
-[gd_scene format=3 uid="uid://dxniomcy0w841"]
+[gd_scene load_steps=32 format=3 uid="uid://dxniomcy0w841"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/stone_golem.gd" id="1_h0vjq"]
+[ext_resource type="Texture2D" uid="uid://ca6plif85pv5g" path="res://animations/enemies/stone_golem/events/death/tile000.png" id="1_i22pa"]
+[ext_resource type="Texture2D" uid="uid://xwqvbyftkuys" path="res://animations/enemies/stone_golem/events/hurt/tile000.png" id="1_mmo2f"]
+[ext_resource type="Texture2D" uid="uid://c7tfablqwkenj" path="res://animations/enemies/stone_golem/movement/idle/tile000.png" id="1_sk5rt"]
+[ext_resource type="Texture2D" uid="uid://dea7nojrqc3sn" path="res://animations/enemies/stone_golem/events/death/tile001.png" id="2_2k21s"]
+[ext_resource type="Texture2D" uid="uid://dtij3hc83mln8" path="res://animations/enemies/stone_golem/events/hurt/tile001.png" id="2_47b5u"]
+[ext_resource type="Texture2D" uid="uid://biqmqjhdwopuq" path="res://animations/enemies/stone_golem/movement/idle/tile001.png" id="2_strha"]
+[ext_resource type="Texture2D" uid="uid://bs8webpwfhcco" path="res://animations/enemies/stone_golem/events/hurt/tile002.png" id="3_pjqmd"]
+[ext_resource type="Texture2D" uid="uid://b7vd4eypuhvs2" path="res://animations/enemies/stone_golem/events/death/tile002.png" id="3_saulu"]
+[ext_resource type="Texture2D" uid="uid://dxawr0lk4eqgx" path="res://animations/enemies/stone_golem/movement/idle/tile002.png" id="3_wpygi"]
+[ext_resource type="Texture2D" uid="uid://ci4q2to8ocwhd" path="res://animations/enemies/stone_golem/movement/idle/tile003.png" id="4_db7m7"]
+[ext_resource type="Texture2D" uid="uid://ceoxxh80bsnho" path="res://animations/enemies/stone_golem/events/death/tile003.png" id="4_juoxs"]
+[ext_resource type="Texture2D" uid="uid://cknxgh2lfgj6c" path="res://animations/enemies/stone_golem/movement/idle/tile004.png" id="5_gwln1"]
+[ext_resource type="Texture2D" uid="uid://b778ab3dj5f80" path="res://animations/enemies/stone_golem/events/death/tile004.png" id="5_k3vb0"]
+[ext_resource type="Texture2D" uid="uid://bwwtvms6xepf0" path="res://animations/enemies/stone_golem/movement/walk/tile000.png" id="6_xlcm1"]
+[ext_resource type="Texture2D" uid="uid://dtn7dwri8awnp" path="res://animations/enemies/stone_golem/movement/walk/tile001.png" id="7_qwtvs"]
+[ext_resource type="Texture2D" uid="uid://vsvkxjou0yi1" path="res://animations/enemies/stone_golem/movement/walk/tile002.png" id="8_oq2fu"]
+[ext_resource type="Texture2D" uid="uid://d0iylf2o3wjbc" path="res://animations/enemies/stone_golem/movement/walk/tile003.png" id="9_0c2qr"]
+[ext_resource type="Texture2D" uid="uid://d357nc037wvs8" path="res://animations/enemies/stone_golem/movement/walk/tile004.png" id="10_qfnxj"]
+[ext_resource type="Texture2D" uid="uid://cdfdbyene8kw1" path="res://animations/enemies/stone_golem/movement/walk/tile005.png" id="11_c78t6"]
+[ext_resource type="Texture2D" uid="uid://csucbyq6r1pn6" path="res://animations/enemies/stone_golem/actions/attack/smash/tile000.png" id="14_var7n"]
+[ext_resource type="Texture2D" uid="uid://c2kc0khk703ut" path="res://animations/enemies/stone_golem/actions/attack/smash/tile001.png" id="15_myp7i"]
+[ext_resource type="Texture2D" uid="uid://bh66p5qxq5ypw" path="res://animations/enemies/stone_golem/actions/attack/smash/tile002.png" id="16_mrlm6"]
+[ext_resource type="Texture2D" uid="uid://068fq2fii2h1" path="res://animations/enemies/stone_golem/actions/attack/smash/tile003.png" id="17_hm4q5"]
+[ext_resource type="Texture2D" uid="uid://bdb7dels005cl" path="res://animations/enemies/stone_golem/actions/attack/smash/tile004.png" id="18_2ijvr"]
+[ext_resource type="Texture2D" uid="uid://bkcep31olh0ry" path="res://animations/enemies/stone_golem/actions/attack/smash/tile005.png" id="19_t6fk5"]
+[ext_resource type="Texture2D" uid="uid://cxm1g1j1emjh5" path="res://animations/enemies/stone_golem/actions/attack/smash/tile006.png" id="20_ri5lb"]
+[ext_resource type="Texture2D" uid="uid://hcy0y5gtvjkp" path="res://animations/enemies/stone_golem/actions/attack/smash/tile007.png" id="21_e8all"]
+[ext_resource type="Texture2D" uid="uid://dqjk072cyc06l" path="res://animations/enemies/stone_golem/actions/attack/smash/tile008.png" id="22_2k3fn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0b2c2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i22pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2k21s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_saulu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_juoxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k3vb0")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mmo2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_47b5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pjqmd")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sk5rt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_strha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wpygi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_db7m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gwln1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_var7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_myp7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mrlm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hm4q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2ijvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_t6fk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ri5lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e8all")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2k3fn")
+}],
+"loop": false,
+"name": &"smash",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xlcm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qwtvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oq2fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0c2qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfnxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c78t6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54lfh"]
 
 [node name="StoneGolem" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_h0vjq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0b2c2")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -48)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -33)
+scale = Vector2(2.5, 2.2)
+shape = SubResource("CapsuleShape2D_54lfh")
