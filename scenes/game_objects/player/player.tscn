@@ -90,7 +90,8 @@
 [ext_resource type="Texture2D" uid="uid://dw640kv47hrrw" path="res://animations/player/actions/attack/sword_stab/tile006.png" id="62_x4ck5"]
 [ext_resource type="Texture2D" uid="uid://p8xd0s82eo81" path="res://animations/player/actions/attack/sword_stab/tile007.png" id="63_nnipy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gphum"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywlee"]
+size = Vector2(16, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ohc71"]
 animations = [{
@@ -420,14 +421,16 @@ script = ExtResource("1_sql77")
 [node name="HitboxComponent" parent="." instance=ExtResource("3_oo1dg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -15)
+position = Vector2(18, -15)
 scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_gphum")
+shape = SubResource("RectangleShape2D_ywlee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ohc71")
-animation = &"idle"
+animation = &"sword_slash"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -21,12 +21,14 @@ extends CharacterBody2D
 @export var IS_ATTACKING           : bool = false
 
 @onready var animation             : AnimatedSprite2D = $AnimatedSprite2D
+@onready var hitbox                                   = $HitboxComponent/CollisionShape2D
 
 func _physics_process(delta):
 	var direction = get_x_movement()
 	get_player_facing_direction(direction)
 	handle_player_movement(delta, direction)
 	handle_player_attack()
+	hitbox.disabled = !IS_ATTACKING
 
 
 func handle_player_movement(delta, direction):
@@ -78,13 +80,13 @@ func handle_player_attack():
 	if !is_on_floor(): return
 
 	if Input.is_action_just_pressed("basic_attack"):
-		var animation = "sword_stab" if randf() < 0.4 else "sword_slash" 
+		var attack = "sword_stab" if randf() < 0.4 else "sword_slash" 
 		IS_ATTACKING = true
-		$AnimatedSprite2D.play(animation)
+		animation.play(attack)
 
 	if Input.is_action_just_pressed("heavy_attack"):
 		IS_ATTACKING = true
-		$AnimatedSprite2D.play("sword_heavy_attack")
+		animation.play("sword_heavy_attack")
 
 
 func get_x_movement():
@@ -93,8 +95,12 @@ func get_x_movement():
 
 
 func get_player_facing_direction(direction):
-	if   direction > 0: $AnimatedSprite2D.flip_h = false
-	elif direction < 0: $AnimatedSprite2D.flip_h = true
+	if direction > 0: 
+		animation.flip_h = false
+		hitbox.position.x = 18
+	elif direction < 0:
+		hitbox.position.x = -18
+		animation.flip_h = true
 
 
 # Toggle crouch

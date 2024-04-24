@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://qveuik7emss6"]
+[gd_scene load_steps=8 format=3 uid="uid://qveuik7emss6"]
 
 [ext_resource type="PackedScene" uid="uid://c428oo00sjqj7" path="res://scenes/game_objects/game_camera/game_camera.tscn" id="1_gpfjo"]
 [ext_resource type="PackedScene" uid="uid://bdrxo64le4hjd" path="res://scenes/game_objects/player/player.tscn" id="1_r86ec"]
 [ext_resource type="TileSet" uid="uid://tm66q0ca1bu4" path="res://assets/environment/tileset.tres" id="2_iecb2"]
 [ext_resource type="Texture2D" uid="uid://burgd6o02x6il" path="res://assets/environment/background/BG4.png" id="3_6uwxo"]
 [ext_resource type="Texture2D" uid="uid://ftm4g2fefwqy" path="res://assets/environment/background/Sky.png" id="3_n42y7"]
+[ext_resource type="PackedScene" uid="uid://phjugaev6wji" path="res://scenes/manager/enemy_manager.tscn" id="6_jgpf4"]
 [ext_resource type="PackedScene" uid="uid://dxniomcy0w841" path="res://scenes/game_objects/enemies/stone_golem.tscn" id="6_oi6iu"]
 
 [node name="Main" type="Node"]
+
+[node name="EnemyManager" parent="." instance=ExtResource("6_jgpf4")]
+stone_golem_scene = ExtResource("6_oi6iu")
 
 [node name="GameCamera" parent="." instance=ExtResource("1_gpfjo")]
 
@@ -93,6 +97,3 @@ layer_0/tile_data = PackedInt32Array(7012698, 65536, 1, 6947162, 65536, 1, 68816
 
 [node name="Player" parent="." instance=ExtResource("1_r86ec")]
 position = Vector2(596, 576)
-
-[node name="StoneGolem" parent="." instance=ExtResource("6_oi6iu")]
-position = Vector2(511, 506)
