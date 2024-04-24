@@ -20,6 +20,8 @@ extends CharacterBody2D
 @export var IS_ROLLING             : bool = false
 @export var IS_ATTACKING           : bool = false
 
+@onready var animation             : AnimatedSprite2D = $AnimatedSprite2D
+
 func _physics_process(delta):
 	var direction = get_x_movement()
 	get_player_facing_direction(direction)
@@ -109,9 +111,9 @@ func player_is_grounded():
 
 func play_animation(anim_str):
 	match anim_str:
-		"jump":            $AnimatedSprite2D.play(anim_str)
-		"double_jump":     $AnimatedSprite2D.play(anim_str)
-		_: if !IS_JUMPING: $AnimatedSprite2D.play(anim_str)
+		"jump":            animation.play(anim_str)
+		"double_jump":     animation.play(anim_str)
+		_: if !IS_JUMPING: animation.play(anim_str)
 
 
 func _on_animated_sprite_2d_animation_finished():

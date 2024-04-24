@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://dxniomcy0w841"]
+[gd_scene load_steps=35 format=3 uid="uid://dxniomcy0w841"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/stone_golem.gd" id="1_h0vjq"]
 [ext_resource type="Texture2D" uid="uid://ca6plif85pv5g" path="res://animations/enemies/stone_golem/events/death/tile000.png" id="1_i22pa"]
 [ext_resource type="Texture2D" uid="uid://xwqvbyftkuys" path="res://animations/enemies/stone_golem/events/hurt/tile000.png" id="1_mmo2f"]
 [ext_resource type="Texture2D" uid="uid://c7tfablqwkenj" path="res://animations/enemies/stone_golem/movement/idle/tile000.png" id="1_sk5rt"]
 [ext_resource type="Texture2D" uid="uid://dea7nojrqc3sn" path="res://animations/enemies/stone_golem/events/death/tile001.png" id="2_2k21s"]
+[ext_resource type="PackedScene" uid="uid://dcvabgdw7rtj6" path="res://scenes/components/health_component.tscn" id="2_7qcmv"]
 [ext_resource type="Texture2D" uid="uid://dtij3hc83mln8" path="res://animations/enemies/stone_golem/events/hurt/tile001.png" id="2_47b5u"]
 [ext_resource type="Texture2D" uid="uid://biqmqjhdwopuq" path="res://animations/enemies/stone_golem/movement/idle/tile001.png" id="2_strha"]
 [ext_resource type="Texture2D" uid="uid://bs8webpwfhcco" path="res://animations/enemies/stone_golem/events/hurt/tile002.png" id="3_pjqmd"]
@@ -29,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://cxm1g1j1emjh5" path="res://animations/enemies/stone_golem/actions/attack/smash/tile006.png" id="20_ri5lb"]
 [ext_resource type="Texture2D" uid="uid://hcy0y5gtvjkp" path="res://animations/enemies/stone_golem/actions/attack/smash/tile007.png" id="21_e8all"]
 [ext_resource type="Texture2D" uid="uid://dqjk072cyc06l" path="res://animations/enemies/stone_golem/actions/attack/smash/tile008.png" id="22_2k3fn"]
+[ext_resource type="PackedScene" uid="uid://ioyjfjh7l4t0" path="res://scenes/components/hurtbox_component.tscn" id="30_midp8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb6vr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0b2c2"]
 animations = [{
@@ -147,14 +151,25 @@ animations = [{
 [node name="StoneGolem" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_h0vjq")
 
+[node name="HealthComponent" parent="." instance=ExtResource("2_7qcmv")]
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("30_midp8")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -33)
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_wb6vr")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0b2c2")
-animation = &"idle"
+animation = &"smash"
 autoplay = "idle"
 offset = Vector2(0, -48)
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -33)
 scale = Vector2(2.5, 2.2)
 shape = SubResource("CapsuleShape2D_54lfh")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
