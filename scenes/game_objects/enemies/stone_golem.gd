@@ -26,11 +26,12 @@ func _physics_process(delta):
 	get_enemy_facing_direction(direction.x)
 	
 	if distance_to_player <= ATTACK_RANGE:
+		if !is_on_floor(): return
 		IS_ATTACKING = true
 		velocity.x = 0
 		animation.play("smash")
 
-	if IS_ATTACKING: return
+	if IS_ATTACKING:   return
 	if (direction.x > 0) or (direction.x < 0):
 		animation.play("walk")
 	else: animation.play("idle")

@@ -1,6 +1,6 @@
 extends Node
 
-const SPAWN_RADIUS = 375
+const SPAWN_RADIUS = 1000
 
 @export var stone_golem_scene : PackedScene
 
@@ -14,8 +14,10 @@ func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null: return
 	
-	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	var spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
+	# TODO - make this spawn on a 2d plane checking for ground
+	var random_direction_x = randf_range(-1, 1)
+	var spawn_position_x = player.global_position.x + (random_direction_x * SPAWN_RADIUS) 
+	var spawn_position = Vector2(spawn_position_x, 500)
 	
 	var stone_golem = stone_golem_scene.instantiate() as Node2D
 	get_parent().add_child(stone_golem)
